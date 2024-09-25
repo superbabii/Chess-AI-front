@@ -1,0 +1,311 @@
+/* General layout and typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-right: 8px;
+  color: #555;
+}
+
+.chess-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  width: 95%;
+  /* min-width: 1200px; */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Top Section: FEN, Reset Button, Status */
+.top-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  /* margin-bottom: 20px; */
+}
+
+.fen-output, .best-move {
+  display: flex;
+  background-color: #e9ecef;
+  padding: 12px;
+  border-radius: 8px;
+  flex: 1;
+  margin-bottom: 15px;
+  text-align: left;
+  font-size: 1rem;
+  word-break: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.best-move {
+  max-width: 300px;
+  /* margin-left: 20px; */
+}
+
+.button {
+  background-color: #28a745;
+  min-width: 120px;
+  color: white;
+  padding: 12px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #218838;
+}
+
+.reset-button:active {
+  background-color: #08240f;
+  transform: scale(1);
+}
+
+.game-status {
+  background-color: #f8f9fa;
+  margin-bottom: 12px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Section: Board and Move History */
+.main-section {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.board-section {
+  /* flex: 1; */
+  display: block;
+  justify-content: center;
+  max-width: 600px;
+  padding: 10px;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-section {
+  flex: 1;
+  display: flex;
+  max-height: 770px;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.move-history {
+  background-color: #e9ecef;
+  padding: 10px;
+  /* max-height: 800px; */
+  border-radius: 8px;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.move-history h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #555;
+  text-align: center;
+}
+
+.move {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.move:nth-child(odd) {
+  background-color: #f1f3f5;
+}
+
+.move:nth-child(even) {
+  background-color: #e2e6ea;
+}
+
+.move-history::-webkit-scrollbar {
+  width: 8px;
+}
+
+.move-history::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+.move-history::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.tab-bar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.tab {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  width: 50%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.active-tab {
+  background-color: #b0bec5;
+}
+
+/* Container for the chatbox */
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 12px;
+  /* border: 1px solid #ddd; */
+  background-color: #f9f9f9;
+  padding: 10px;
+  height: 100%;
+  /* margin-top: 20px; */
+  position: relative;
+}
+
+/* Container for chat messages */
+.chat-response {
+  flex-grow: 1;
+  /* padding: 10px; */
+  overflow-y: auto;
+  background-color: transparent;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for user and AI messages */
+.chat-response p {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.chat-response p.user {
+  background-color: #d1f5ff;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.chat-response p.ai {
+  background-color: #f0f0f0;
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* Input text area */
+textarea {
+  max-width: 100%;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  font-size: 1rem;
+  resize: none;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Submit button */
+.chat-box button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  background-color: #2b7cff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.chat-box button:disabled {
+  background-color: #a1c4ff;
+}
+
+/* Highlight the best move squares */
+.highlight-from {
+  background-color: rgba(0, 255, 0, 0.5);  /* Green highlight */
+}
+
+.highlight-to {
+  background-color: rgba(255, 0, 0, 0.5);  /* Red highlight */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .main-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .board-section, .info-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .fen-output {
+    font-size: 0.9rem;
+  }
+
+  .reset-button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+
+  .game-status {
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+
+  .move-history h2 {
+    font-size: 1.1rem;
+  }
+
+  .move {
+    font-size: 0.9rem;
+  }
+}
