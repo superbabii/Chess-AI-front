@@ -60,7 +60,7 @@ const ChessGame = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/evaluate', {
+      const response = await fetch('http://172.31.26.159:8000/evaluate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ const ChessGame = () => {
   const handleChatSubmit = async () => {
     setLoadingChat(true);
     try {
-      const response = await fetch('http://localhost:5000/llm_chat', {
+      const response = await fetch('http://172.31.26.159:8000/llm_chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
