@@ -60,7 +60,7 @@ const ChessGame = () => {
     }
 
     try {
-      const response = await fetch('http://3.135.227.245:8000/evaluate', {
+      const response = await fetch('https://3.135.227.245:8000/evaluate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
