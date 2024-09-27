@@ -60,7 +60,7 @@ const ChessGame = () => {
     }
 
     try {
-      const response = await fetch('https://superbabii.com:8000/evaluate', {
+      const response = await fetch('https://superbabii.com/evaluate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ const ChessGame = () => {
   const handleChatSubmit = async () => {
     setLoadingChat(true);
     try {
-      const response = await fetch('https://superbabii.com:8000/llm_chat', {
+      const response = await fetch('https://superbabii.com/llm_chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
